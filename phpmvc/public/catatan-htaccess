@@ -1,0 +1,21 @@
+Options -Multiviews
+<!-- digunakan untuk menghindari ambigu dari folder atau filenya -->
+
+<!-- lalu kita akan menulis ulang alamat url aplikasi kita -->
+RewriteEngine On 
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+<!-- untuk menghindari nama folder dan nama file yang sama dengan method kita nantinya -->
+RewriteRule ^(.*)$ index.php?url=$1
+
+<!-- index.php? = arahkan ke file index yang mengirimkan url -->
+
+<!-- ^ = kita akan membaca mulai dari awal, dan mulai dari awal setelah kita menulis folder public  -->
+
+<!-- $1 = adalah placeholder , apapun yang dituliskan di (.*)$ akan disimpan kedalam placeholder -->
+
+<!-- () = ambil apapun yang ada didalamnya atau karakter kecuali enter sampai habis -->
+
+<!-- $ = sampai karakternya selesai -->
+
+<!-- [L] = Kalau sudah ada rule yang sudah terpenuhi jangan jalankan rule lain setelah ini, untuk menghindari ada orang melakukan sesuatu yang jahat -->
